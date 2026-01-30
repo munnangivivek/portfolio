@@ -32,11 +32,11 @@ const Hero = () => {
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-comic text-comic-black leading-[0.9] mb-4 drop-shadow-white relative">
                             HI, I'M <br />
                             <span className="text-comic-white text-outline relative inline-block">
-                                VIVEK
+                                VIVEKkk
                             </span>
                             <br />
                             <span className="text-comic-white text-outline relative inline-block">
-                                MUNNANGII
+                                MUNNANGIIiii
                             </span>
                         </h1>
 
