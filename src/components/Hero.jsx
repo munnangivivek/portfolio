@@ -36,7 +36,7 @@ const Hero = () => {
                             </span>
                             <br />
                             <span className="text-comic-white text-outline relative inline-block">
-                                MUNNANGI
+                                MUNNANGII
                             </span>
                         </h1>
 
