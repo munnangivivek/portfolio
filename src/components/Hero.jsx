@@ -41,7 +41,7 @@ const Hero = () => {
                         </h1>
 
                         <p className="text-lg md:text-xl font-bold font-body text-comic-black/80 max-w-lg mx-auto md:mx-0 mb-6">
-                            I build create digital experiences that are impactfull, fun and impossible to ignore.
+                            I create digital experiences that are impactful, fun and impossible to ignore.
                         </p>
 
                         <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
