@@ -65,13 +65,13 @@ const Contact = () => {
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-                        <a href="#" className="flex items-center justify-center gap-3 bg-[#ea4c89] text-white text-xl font-comic py-5 rounded-2xl hover:scale-105 transition-transform comic-shadow-lg border-4 border-comic-black">
+                        <a href="https://dribbble.com/Vivek____" target="_blank" className="flex items-center justify-center gap-3 bg-[#ea4c89] text-white text-xl font-comic py-5 rounded-2xl hover:scale-105 transition-transform comic-shadow-lg border-4 border-comic-black">
                             <Dribbble size={28} /> DRIBBBLE
                         </a>
-                        <a href="#" className="flex items-center justify-center gap-3 bg-[#1769ff] text-white text-xl font-comic py-5 rounded-2xl hover:scale-105 transition-transform comic-shadow-lg border-4 border-comic-black">
+                        <a href="https://www.behance.net/vivekmunnangi" target="_blank" className="flex items-center justify-center gap-3 bg-[#1769ff] text-white text-xl font-comic py-5 rounded-2xl hover:scale-105 transition-transform comic-shadow-lg border-4 border-comic-black">
                             <Globe size={28} /> BEHANCE
                         </a>
-                        <a href="#" className="flex items-center justify-center gap-3 bg-[#E1306C] text-white text-xl font-comic py-5 rounded-2xl hover:scale-105 transition-transform comic-shadow-lg border-4 border-comic-black">
+                        <a href="https://www.instagram.com/mr.vivek_07/" target="_blank" className="flex items-center justify-center gap-3 bg-[#E1306C] text-white text-xl font-comic py-5 rounded-2xl hover:scale-105 transition-transform comic-shadow-lg border-4 border-comic-black">
                             <Instagram size={28} /> INSTAGRAM
                         </a>
                     </div>
@@ -113,8 +113,8 @@ const Contact = () => {
                                 type="submit"
                                 disabled={status === 'sending' || status === 'success'}
                                 className={`w-full py-5 font-comic text-2xl border-4 border-comic-black rounded-xl comic-shadow transition-all flex items-center justify-center gap-2 ${status === 'success' ? 'bg-comic-green text-comic-black pointer-events-none' :
-                                        status === 'sending' ? 'bg-gray-300 text-gray-600 pointer-events-none' :
-                                            'bg-comic-green text-comic-black hover:shadow-[0px_0px_0px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px]'
+                                    status === 'sending' ? 'bg-gray-300 text-gray-600 pointer-events-none' :
+                                        'bg-comic-green text-comic-black hover:shadow-[0px_0px_0px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px]'
                                     }`}
                             >
                                 {status === 'sending' ? 'SENDING...' :
