@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 import ContactModal from './ContactModal';
+import ComicButton from './ui/ComicButton';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -49,69 +50,19 @@ const Navbar = () => {
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    // Changed hover from color-blue to simple thick underline to fit 'art interest'
                                     className="text-lg font-bold font-body text-comic-black hover:underline decoration-4 underline-offset-4 transition-all relative group"
                                 >
                                     {link.name}
                                 </a>
                             ))}
-                            <motion.button
-                                initial="initial"
-                                whileHover="hover"
+                            <ComicButton
+                                variant="green"
+                                sparkles={true}
                                 onClick={() => setIsContactOpen(true)}
-                                className="relative px-6 py-2 text-base font-comic tracking-wider text-comic-black bg-comic-green border-2 border-comic-black rounded-full comic-shadow hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#000] active:translate-y-[0px] active:shadow-[2px_2px_0px_0px_#000] transition-all overflow-visible group"
+                                className="!py-2 !px-6 text-base !rounded-full !border-2 overflow-visible"
                             >
-                                <span className="relative z-10">LET'S TALK</span>
-
-                                {/* Sparkles */}
-                                <motion.span
-                                    variants={{
-                                        initial: { opacity: 0, scale: 0 },
-                                        hover: {
-                                            opacity: [0, 1, 0],
-                                            x: -20,
-                                            y: -20,
-                                            scale: [0, 1.2, 0],
-                                            rotate: -45,
-                                            transition: { duration: 0.6, repeat: Infinity, repeatDelay: 0.1 }
-                                        }
-                                    }}
-                                    className="absolute top-0 left-0 text-xl pointer-events-none"
-                                >
-                                    ✨
-                                </motion.span>
-                                <motion.span
-                                    variants={{
-                                        initial: { opacity: 0, scale: 0 },
-                                        hover: {
-                                            opacity: [0, 1, 0],
-                                            x: 20,
-                                            y: -20,
-                                            scale: [0, 1.2, 0],
-                                            rotate: 45,
-                                            transition: { duration: 0.6, delay: 0.2, repeat: Infinity, repeatDelay: 0.1 }
-                                        }
-                                    }}
-                                    className="absolute top-0 right-0 text-xl pointer-events-none"
-                                >
-                                    ✨
-                                </motion.span>
-                                <motion.span
-                                    variants={{
-                                        initial: { opacity: 0, scale: 0 },
-                                        hover: {
-                                            opacity: [0, 1, 0],
-                                            x: 0,
-                                            y: -25,
-                                            scale: [0, 1.2, 0],
-                                            transition: { duration: 0.6, delay: 0.1, repeat: Infinity, repeatDelay: 0.1 }
-                                        }
-                                    }}
-                                    className="absolute -top-4 left-1/2 -translate-x-1/2 text-lg pointer-events-none"
-                                >
-                                    ✨
-                                </motion.span>
-                            </motion.button>
+                                LET'S TALK
+                            </ComicButton>
                         </div>
 
                         {/* Mobile Menu Button */}
