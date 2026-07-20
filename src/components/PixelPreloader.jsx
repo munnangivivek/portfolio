@@ -24,11 +24,12 @@ const PixelPreloader = ({ onComplete }) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
-    // Cycle through words array (420ms per language)
+    // Leave extra time for index 0 (English) to be read, then cycle remaining languages at 420ms
     if (index < words.length - 1) {
+      const currentDelay = index === 0 ? 920 : 420;
       const timer = setTimeout(() => {
         setIndex((prevIndex) => prevIndex + 1);
-      }, 420);
+      }, currentDelay);
       return () => clearTimeout(timer);
     } else {
       // Hold last word briefly, then trigger normal slide up
