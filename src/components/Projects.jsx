@@ -31,7 +31,7 @@ const Projects = () => {
       category: "UI/UX",
       color: "bg-comic-blue",
       icon: <Smartphone className="w-16 h-16 text-comic-black" />,
-      figmaUrl: "https://www.figma.com/file/MJGm1m8eJ9h5w5w5w5w5w7",
+      figmaUrl: "https://www.figma.com/design/8ICMWiKIEXncXw0SXyOoPN/testing?node-id=2056-1010&t=VmGUGLDD2y4cTLzj-4",
       illustration: (
         <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
           <rect x="30" y="15" width="40" height="70" rx="8" fill="white" stroke="black" strokeWidth="3" />
