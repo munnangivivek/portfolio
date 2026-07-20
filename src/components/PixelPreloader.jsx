@@ -67,7 +67,7 @@ const PixelPreloader = ({ onComplete }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.28, ease: 'easeOut' }}
+            transition={{ duration: index === 0 ? 0.65 : 0.22, ease: 'easeOut' }}
           >
             <span className="text-comic-black font-['Inter',sans-serif] font-bold text-2xl sm:text-3xl md:text-4xl tracking-wide leading-snug whitespace-pre-wrap">
               {words[index]}
