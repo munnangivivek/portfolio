@@ -1,64 +1,23 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /**
- * Minimal & Cool Chessboard Yellow Preloader
- * Features a small checkerboard grid in yellow theme tones,
- * refined smaller centered typography, and an animated marker under "Build".
+ * Double Stairs Preloader Transition
+ * Features 5 vertical stair columns with double-layer staggered slide-up exit,
+ * centered typography, and a fine brush stroke underline under "Build".
  */
 const PixelPreloader = ({ onComplete }) => {
   const [isExiting, setIsExiting] = useState(false);
-  const [gridDimensions, setGridDimensions] = useState({ cols: 16, rows: 12 });
 
-  useEffect(() => {
-    // Calculate small grid blocks (~45px size)
-    const updateGrid = () => {
-      const blockSize = 45;
-      const cols = Math.max(10, Math.ceil(window.innerWidth / blockSize));
-      const rows = Math.max(8, Math.ceil(window.innerHeight / blockSize));
-      setGridDimensions({ cols, rows });
-    };
-
-    updateGrid();
-    window.addEventListener('resize', updateGrid);
-    return () => window.removeEventListener('resize', updateGrid);
-  }, []);
-
-  // Calculate concentric wave exit delays from center outward
-  const blockData = useMemo(() => {
-    const blocks = [];
-    const centerCol = gridDimensions.cols / 2;
-    const centerRow = gridDimensions.rows / 2;
-
-    for (let r = 0; r < gridDimensions.rows; r++) {
-      for (let c = 0; c < gridDimensions.cols; c++) {
-        const dist = Math.sqrt(Math.pow(c - centerCol, 2) + Math.pow(r - centerRow, 2));
-        const isAlternate = (r + c) % 2 === 0;
-
-        blocks.push({
-          id: `${r}-${c}`,
-          row: r,
-          col: c,
-          isAlternate,
-          dist,
-        });
-      }
-    }
-
-    const maxDist = Math.max(...blocks.map((b) => b.dist)) || 1;
-    return blocks.map((b) => ({
-      ...b,
-      delay: (b.dist / maxDist) * 0.32,
-    }));
-  }, [gridDimensions.cols, gridDimensions.rows]);
+  const nbOfColumns = 5;
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
-    // Show text for ~1.6s before initiating exit wave
+    // Show preloader text for ~1.6s before double stairs transition starts
     const timer = setTimeout(() => {
       setIsExiting(true);
-    }, 1650);
+    }, 1600);
 
     return () => {
       clearTimeout(timer);
@@ -66,7 +25,14 @@ const PixelPreloader = ({ onComplete }) => {
     };
   }, []);
 
-  const handleExitComplete = () => {
+  // Calculate staggered delay for stairs sequence
+  const getStairsDelay = (index, layer = 1) => {
+    const baseStagger = 0.07;
+    const layerOffset = layer === 1 ? 0 : 0.08;
+    return index * baseStagger + layerOffset;
+  };
+
+  const handleAnimationComplete = () => {
     if (isExiting && onComplete) {
       document.body.style.overflow = '';
       onComplete();
@@ -74,30 +40,50 @@ const PixelPreloader = ({ onComplete }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center pointer-events-auto select-none overflow-hidden bg-[#FFC800]">
-      {/* Chessboard Grid Container */}
-      <div 
-        className="absolute inset-0 grid w-full h-full pointer-events-none z-0"
-        style={{
-          gridTemplateColumns: `repeat(${gridDimensions.cols}, minmax(0, 1fr))`,
-          gridTemplateRows: `repeat(${gridDimensions.rows}, minmax(0, 1fr))`,
-        }}
-      >
-        {blockData.map((block, index) => (
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center pointer-events-auto select-none overflow-hidden">
+      {/* First Layer Stairs (Comic Red Accent) */}
+      <div className="absolute inset-0 flex w-full h-full pointer-events-none z-0">
+        {Array.from({ length: nbOfColumns }).map((_, i) => (
           <motion.div
-            key={block.id}
-            className={`w-full h-full border-[0.5px] border-black/[0.06] ${
-              block.isAlternate ? 'bg-[#FFC800]' : 'bg-[#F3C000]'
-            }`}
-            initial={{ opacity: 1, scale: 1 }}
-            animate={isExiting ? { opacity: 0, scale: 0.92 } : { opacity: 1, scale: 1 }}
+            key={`stair-layer1-${i}`}
+            className="h-full bg-comic-red relative border-r border-black/10"
+            style={{ width: `${100 / nbOfColumns}%` }}
+            initial={{ y: '0%' }}
+            animate={isExiting ? { y: '-100%' } : { y: '0%' }}
             transition={{
-              duration: 0.32,
-              delay: isExiting ? block.delay : 0,
+              duration: 0.5,
+              delay: isExiting ? getStairsDelay(i, 1) : 0,
               ease: [0.76, 0, 0.24, 1],
             }}
-            onAnimationComplete={index === blockData.length - 1 ? handleExitComplete : undefined}
           />
+        ))}
+      </div>
+
+      {/* Second Layer Stairs (Main Comic Yellow Theme) */}
+      <div className="absolute inset-0 flex w-full h-full pointer-events-none z-10">
+        {Array.from({ length: nbOfColumns }).map((_, i) => (
+          <motion.div
+            key={`stair-layer2-${i}`}
+            className="h-full bg-comic-yellow relative border-r border-black/10 flex flex-col justify-between"
+            style={{ width: `${100 / nbOfColumns}%` }}
+            initial={{ y: '0%' }}
+            animate={isExiting ? { y: '-100%' } : { y: '0%' }}
+            transition={{
+              duration: 0.55,
+              delay: isExiting ? getStairsDelay(i, 2) : 0,
+              ease: [0.76, 0, 0.24, 1],
+            }}
+            onAnimationComplete={i === nbOfColumns - 1 ? handleAnimationComplete : undefined}
+          >
+            {/* Subtle Graph Grid Line inside each stair column */}
+            <div 
+              className="absolute inset-0 opacity-[0.12] pointer-events-none" 
+              style={{
+                backgroundImage: `linear-gradient(#000000 1.5px, transparent 1.5px), linear-gradient(90deg, #000000 1.5px, transparent 1.5px)`,
+                backgroundSize: '40px 40px'
+              }}
+            />
+          </motion.div>
         ))}
       </div>
 
@@ -105,11 +91,11 @@ const PixelPreloader = ({ onComplete }) => {
       <AnimatePresence>
         {!isExiting && (
           <motion.div
-            className="relative z-10 flex flex-col items-center text-center px-6 max-w-xl"
+            className="relative z-20 flex flex-col items-center text-center px-6 max-w-xl"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -18, scale: 0.96, filter: 'blur(4px)' }}
-            transition={{ duration: 0.32, ease: [0.76, 0, 0.24, 1] }}
+            exit={{ opacity: 0, y: -30, filter: 'blur(4px)' }}
+            transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }}
           >
             <div className="flex flex-col items-center justify-center text-comic-black text-2xl sm:text-4xl md:text-5xl font-heading tracking-wide leading-[1.3]">
               {/* Line 1 */}
