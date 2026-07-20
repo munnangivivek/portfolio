@@ -25,6 +25,26 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "SILVRA APP",
+      description: "A premium mobile app design delivered to a real-world client as a professional freelancing gig, prioritizing luxury silver branding.",
+      tags: ["Freelance", "App Design", "UI/UX"],
+      category: "UI/UX",
+      color: "bg-comic-blue",
+      icon: <Smartphone className="w-16 h-16 text-comic-black" />,
+      figmaUrl: "https://www.figma.com/file/MJGm1m8eJ9h5w5w5w5w5w7",
+      illustration: (
+        <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+          <rect x="30" y="15" width="40" height="70" rx="8" fill="white" stroke="black" strokeWidth="3" />
+          <rect x="35" y="25" width="30" height="50" rx="3" fill="#FF4400" stroke="black" strokeWidth="2" />
+          <circle cx="50" cy="50" r="12" fill="silver" stroke="black" strokeWidth="2" />
+          <circle cx="50" cy="50" r="8" fill="#e2e8f0" stroke="black" strokeWidth="1" />
+          <text x="47" y="53" className="font-comic text-xs fill-black font-extrabold">S</text>
+          <line x1="38" y1="32" x2="62" y2="32" stroke="white" strokeWidth="2" />
+          <rect x="42" y="65" width="16" height="6" rx="1.5" fill="#FFC800" stroke="black" strokeWidth="1.5" />
+        </svg>
+      )
+    },
+    {
       title: "Vanaga Portfolio",
       description: "A sleek, highly customized portfolio website built for a freelance client, focusing on clean grid layouts.",
       tags: ["React", "CSS Grid", "Freelance"],
@@ -38,6 +58,25 @@ const Projects = () => {
           <circle cx="50" cy="40" r="12" fill="#60CFFF" stroke="black" strokeWidth="2.5" />
           <path d="M 32,68 C 32,56 40,56 50,56 C 60,56 68,56 68,68 Z" fill="#60CFFF" stroke="black" strokeWidth="2.5" />
           <text x="25" y="32" className="font-comic text-xs fill-black">V</text>
+        </svg>
+      )
+    },
+    {
+      title: "Campus Circle",
+      description: "A collaborative student community platform built to connect peers, scaling from 20 beta users and engineered to handle 1000+ active connections.",
+      tags: ["React Native", "Node.js", "WebSockets"],
+      category: "APPS",
+      color: "bg-comic-red",
+      icon: <MessageSquare className="w-16 h-16 text-comic-black" />,
+      demoUrl: "https://campus-circle-niat.vercel.app/",
+      illustration: (
+        <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+          <path d="M 50,15 L 80,30 L 80,65 C 80,75 50,85 50,85 C 50,85 20,75 20,65 L 20,30 Z" fill="white" stroke="black" strokeWidth="3" />
+          <circle cx="50" cy="50" r="14" fill="#60CFFF" stroke="black" strokeWidth="2.5" />
+          <rect x="52" y="58" width="36" height="18" rx="4" fill="#FFC800" stroke="black" strokeWidth="2" />
+          <text x="56" y="71" className="font-comic text-[10px] fill-black font-extrabold">1000+</text>
+          <path d="M 42,42 L 50,34 L 58,42 Z" fill="black" />
+          <rect x="45" y="42" width="10" height="10" fill="black" />
         </svg>
       )
     },
@@ -59,38 +98,20 @@ const Projects = () => {
       isSelf: true
     },
     {
-      title: "Other Experimental Stuff",
-      description: "A playground of prototype features, custom canvas drawings, and physics engine tests.",
-      tags: ["Canvas", "Web Audio", "WebGL"],
-      category: "WEBDEV",
-      color: "bg-comic-blue",
-      icon: <FlaskConical className="w-16 h-16 text-comic-black" />,
+      title: "Designathon Submissions",
+      description: "Competitive UI/UX prototypes and interactive dashboard concepts crafted under tight event timelines.",
+      tags: ["Designathon", "Figma", "Prototypes"],
+      category: "UI/UX",
+      color: "bg-comic-green",
+      icon: <Award className="w-16 h-16 text-comic-black" />,
+      figmaUrl: "https://www.figma.com/design/8ICMWiKIEXncXw0SXyOoPN/testing?node-id=2058-2680&t=gClaOX4zKNrf1DLI-4",
       illustration: (
         <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
-          <path d="M 40,20 L 60,20 M 45,20 L 45,35 L 25,75 A 10,10 0 0,0 35,85 L 65,85 A 10,10 0 0,0 75,75 L 55,35 L 55,20" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="50" cy="65" r="8" fill="#FFB8FF" stroke="black" strokeWidth="2" />
-          <circle cx="42" cy="52" r="5" fill="#60CFFF" stroke="black" strokeWidth="2" />
-          <circle cx="58" cy="50" r="4" fill="#FF4400" stroke="black" strokeWidth="2" />
-        </svg>
-      ),
-      noVisit: true
-    },
-    {
-      title: "Campus Circle",
-      description: "A collaborative student community platform built to connect peers, scaling from 20 beta users and engineered to handle 1000+ active connections.",
-      tags: ["React Native", "Node.js", "WebSockets"],
-      category: "APPS",
-      color: "bg-comic-red",
-      icon: <MessageSquare className="w-16 h-16 text-comic-black" />,
-      demoUrl: "https://campus-circle-niat.vercel.app/",
-      illustration: (
-        <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
-          <path d="M 50,15 L 80,30 L 80,65 C 80,75 50,85 50,85 C 50,85 20,75 20,65 L 20,30 Z" fill="white" stroke="black" strokeWidth="3" />
-          <circle cx="50" cy="50" r="14" fill="#60CFFF" stroke="black" strokeWidth="2.5" />
-          <rect x="52" y="58" width="36" height="18" rx="4" fill="#FFC800" stroke="black" strokeWidth="2" />
-          <text x="56" y="71" className="font-comic text-[10px] fill-black font-extrabold">1000+</text>
-          <path d="M 42,42 L 50,34 L 58,42 Z" fill="black" />
-          <rect x="45" y="42" width="10" height="10" fill="black" />
+          <path d="M 50,15 L 60,35 L 82,35 L 65,48 L 72,70 L 50,57 L 28,70 L 35,48 L 18,35 L 40,35 Z" fill="#FFC800" stroke="black" strokeWidth="3" strokeLinejoin="round" />
+          <line x1="50" y1="5" x2="50" y2="10" stroke="black" strokeWidth="2" strokeLinecap="round" />
+          <line x1="88" y1="42" x2="82" y2="42" stroke="black" strokeWidth="2" strokeLinecap="round" />
+          <line x1="12" y1="42" x2="18" y2="42" stroke="black" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="50" cy="38" r="4" fill="white" stroke="black" strokeWidth="1.5" />
         </svg>
       )
     },
@@ -115,42 +136,21 @@ const Projects = () => {
       )
     },
     {
-      title: "Designathon Submissions",
-      description: "Competitive UI/UX prototypes and interactive dashboard concepts crafted under tight event timelines.",
-      tags: ["Designathon", "Figma", "Prototypes"],
-      category: "UI/UX",
-      color: "bg-comic-green",
-      icon: <Award className="w-16 h-16 text-comic-black" />,
-      figmaUrl: "https://www.figma.com/design/8ICMWiKIEXncXw0SXyOoPN/testing?node-id=2058-2680&t=gClaOX4zKNrf1DLI-4",
-      illustration: (
-        <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
-          <path d="M 50,15 L 60,35 L 82,35 L 65,48 L 72,70 L 50,57 L 28,70 L 35,48 L 18,35 L 40,35 Z" fill="#FFC800" stroke="black" strokeWidth="3" strokeLinejoin="round" />
-          <line x1="50" y1="5" x2="50" y2="10" stroke="black" strokeWidth="2" strokeLinecap="round" />
-          <line x1="88" y1="42" x2="82" y2="42" stroke="black" strokeWidth="2" strokeLinecap="round" />
-          <line x1="12" y1="42" x2="18" y2="42" stroke="black" strokeWidth="2" strokeLinecap="round" />
-          <circle cx="50" cy="38" r="4" fill="white" stroke="black" strokeWidth="1.5" />
-        </svg>
-      )
-    },
-    {
-      title: "SILVRA APP",
-      description: "A premium mobile app design delivered to a real-world client as a professional freelancing gig, prioritizing luxury silver branding.",
-      tags: ["Freelance", "App Design", "UI/UX"],
-      category: "UI/UX",
+      title: "Other Experimental Stuff",
+      description: "A playground of prototype features, custom canvas drawings, and physics engine tests.",
+      tags: ["Canvas", "Web Audio", "WebGL"],
+      category: "WEBDEV",
       color: "bg-comic-blue",
-      icon: <Smartphone className="w-16 h-16 text-comic-black" />,
-      figmaUrl: "https://www.figma.com/file/MJGm1m8eJ9h5w5w5w5w5w7",
+      icon: <FlaskConical className="w-16 h-16 text-comic-black" />,
       illustration: (
         <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
-          <rect x="30" y="15" width="40" height="70" rx="8" fill="white" stroke="black" strokeWidth="3" />
-          <rect x="35" y="25" width="30" height="50" rx="3" fill="#FF4400" stroke="black" strokeWidth="2" />
-          <circle cx="50" cy="50" r="12" fill="silver" stroke="black" strokeWidth="2" />
-          <circle cx="50" cy="50" r="8" fill="#e2e8f0" stroke="black" strokeWidth="1" />
-          <text x="47" y="53" className="font-comic text-xs fill-black font-extrabold">S</text>
-          <line x1="38" y1="32" x2="62" y2="32" stroke="white" strokeWidth="2" />
-          <rect x="42" y="65" width="16" height="6" rx="1.5" fill="#FFC800" stroke="black" strokeWidth="1.5" />
+          <path d="M 40,20 L 60,20 M 45,20 L 45,35 L 25,75 A 10,10 0 0,0 35,85 L 65,85 A 10,10 0 0,0 75,75 L 55,35 L 55,20" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="50" cy="65" r="8" fill="#FFB8FF" stroke="black" strokeWidth="2" />
+          <circle cx="42" cy="52" r="5" fill="#60CFFF" stroke="black" strokeWidth="2" />
+          <circle cx="58" cy="50" r="4" fill="#FF4400" stroke="black" strokeWidth="2" />
         </svg>
-      )
+      ),
+      noVisit: true
     },
     {
       title: "Posters, Banners, & Logos",
@@ -317,23 +317,24 @@ const Projects = () => {
                           </ComicButton>
                         ) : (
                           <>
-                            <ComicButton 
-                              variant="white" 
-                              className={project.noVisit ? "w-full py-2.5" : "flex-1 text-sm md:text-base py-2.5"}
-                              onClick={() => {
-                                if (project.githubUrl) {
-                                  window.open(project.githubUrl, "_blank");
-                                } else {
-                                  openComingSoon("This project's source code repository is under construction. Coming soon!");
-                                }
-                              }}
-                            >
-                              <Github size={18} /> CODE
-                            </ComicButton>
-                            {!project.noVisit && (
+                            {project.noVisit ? (
+                              <ComicButton 
+                                variant="white" 
+                                className="w-full py-2.5"
+                                onClick={() => {
+                                  if (project.githubUrl) {
+                                    window.open(project.githubUrl, "_blank");
+                                  } else {
+                                    openComingSoon("This project's source code repository is under construction. Coming soon!");
+                                  }
+                                }}
+                              >
+                                <Github size={18} /> CODE
+                              </ComicButton>
+                            ) : (
                               <ComicButton 
                                 variant="black" 
-                                className="flex-1 text-sm md:text-base py-2.5"
+                                className="w-full py-2.5"
                                 onClick={() => {
                                   if (project.isSelf) {
                                     window.scrollTo({ top: 0, behavior: 'smooth' });
