@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
+import PixelPreloader from './components/PixelPreloader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,6 +12,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   // Initialize Lenis smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
@@ -47,6 +50,12 @@ function App() {
 
   return (
     <div className="app-container">
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <PixelPreloader onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+
       {/* Dynamic Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-3 bg-comic-red z-[100] origin-left border-b-4 border-comic-black"
