@@ -122,33 +122,32 @@ const PixelPreloader = ({ onComplete }) => {
                 <span>Learning to</span>
                 <span className="relative inline-block text-comic-black px-1 font-extrabold">
                   Build
-                  {/* Marker Underline under "Build" */}
+                  {/* Fine Brush Underline under "Build" */}
                   <svg
-                    className="absolute -bottom-1.5 left-0 w-full h-4 sm:h-5 overflow-visible pointer-events-none z-0"
-                    viewBox="0 0 120 20"
+                    className="absolute -bottom-1 left-0 w-full h-3 sm:h-4 overflow-visible pointer-events-none z-0"
+                    viewBox="0 0 100 12"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    {/* Comic Red Marker Underline */}
+                    {/* Primary Thin Brush Stroke */}
                     <motion.path
-                      d="M 3 12 C 25 5, 75 16, 115 8 C 85 18, 45 14, 8 15"
+                      d="M 2 8 C 25 3, 65 11, 98 5"
                       stroke="#FF4400"
-                      strokeWidth="9"
+                      strokeWidth="3.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       initial={{ pathLength: 0, opacity: 0 }}
                       animate={{ pathLength: 1, opacity: 0.95 }}
-                      transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
+                      transition={{ duration: 0.5, delay: 0.35, ease: 'easeOut' }}
                     />
-                    {/* White Accent Highlight Line */}
+                    {/* Subtle Organic Accent Line */}
                     <motion.path
-                      d="M 6 14 C 35 8, 90 16, 110 10"
-                      stroke="#FFFFFF"
-                      strokeWidth="2.5"
+                      d="M 8 10 C 35 6, 75 9, 94 7"
+                      stroke="#FF4400"
+                      strokeWidth="1.8"
                       strokeLinecap="round"
-                      strokeLinejoin="round"
                       initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: 0.9 }}
+                      animate={{ pathLength: 1, opacity: 0.6 }}
                       transition={{ duration: 0.4, delay: 0.5, ease: 'easeOut' }}
                     />
                   </svg>
