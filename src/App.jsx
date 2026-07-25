@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import PixelPreloader from './components/PixelPreloader';
+import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <CustomCursor />
       <AnimatePresence mode="wait">
         {isLoading && (
           <PixelPreloader onComplete={() => setIsLoading(false)} />
